@@ -1,19 +1,17 @@
 use std::env;
-use tdameritradeclient::{History, TDAClient};
+use tdameritradeclient::{TDAClient, History};
 
 fn main() {
-    env_logger::init();
+
     let c = TDAClient::new(env::var("TDAUTHTOKEN").unwrap());
     titleprint("History:");
-    prettyprint(&c.gethistory(
-        "SPY",
+    prettyprint(&c.gethistory("SPY", 
         &[
             History::Period(1),
             History::PeriodType("month"),
             History::Frequency(1),
             History::FrequencyType("daily"),
-        ],
-    ));
+        ]));
 }
 
 fn prettyprint(toprint: &serde_json::Value) {

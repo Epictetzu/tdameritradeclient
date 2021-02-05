@@ -1,14 +1,13 @@
 use std::env;
-use tdameritradeclient::{OptionChain, TDAClient};
+use tdameritradeclient::{TDAClient, OptionChain};
 
 fn main() {
-    env_logger::init();
 
     let c = TDAClient::new(env::var("TDAUTHTOKEN").unwrap());
-    // TODO: add symbol in params
+
     titleprint("Option Chain:");
-    prettyprint(&c.getoptionchain(&[
-        OptionChain::Symbol("SPY"),
+    prettyprint(&c.getoptionchain(
+    &[
         OptionChain::StrikeCount(3),
         OptionChain::ContractType("CALL"),
     ]));
