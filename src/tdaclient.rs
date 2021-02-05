@@ -186,7 +186,7 @@ impl TDAClient {
     where
         RequestBuilder: Execute<T>,
     {
-        let mut builder = self.client.get(format!("{}accounts/{}", crate::APIWWW, account)).execute();
+        let mut builder = self.client.get(format!("{}accounts/{}", crate::APIWWW, account)).execute()
     }
     ///
     /// get /accounts/{account}/positions
@@ -195,7 +195,7 @@ impl TDAClient {
     where
         RequestBuilder: Execute<T>,
     {
-        let mut builder = self.client.get(format!("{}accounts/{}/positions", crate::APIWWW, account)).execute();
+        let mut builder = self.client.get(format!("{}accounts/{}/positions", crate::APIWWW, account)).execute()
     }
     ///
     /// get /accounts/{account}/orders
