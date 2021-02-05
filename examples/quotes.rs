@@ -1,7 +1,8 @@
 use std::env;
-use tdameritradeclient::{TDAClient};
+use tdameritradeclient::TDAClient;
 
 fn main() {
+    env_logger::init();
 
     let c = TDAClient::new(env::var("TDAUTHTOKEN").unwrap());
     titleprint("Quotes:");
